@@ -1,0 +1,67 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+/cypress/videos/
+/cypress/screenshots/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+# Медиафайлы - изображения, аудио, видео
+# Исключаем все медиафайлы
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.ico
+*.bmp
+*.tiff
+*.tga
+*.svg
+*.mp3
+*.wav
+*.ogg
+*.flac
+*.aac
+*.wma
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mkv
+*.m4v
+*.3gp
+
+# Исключаем папки с медиафайлами
+src/assets/images/
+src/assets/audio/
+src/assets/video/
+src/assets/media/
+
+# Исключения - разрешаем только логотип
+!src/assets/images/icons/logo.svg

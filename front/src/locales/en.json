@@ -1,0 +1,87 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
+  },
+  "navigation": {
+    "home": "Home",
+    "chat": "Chat",
+    "profile": "Profile",
+    "bots": "Bots"
+  },
+  "home": {
+    "hero": {
+      "title": "AI Dating Site with Girls",
+      "subtitle": "Meet and chat about any topics!"
+    },
+    "features": {
+      "unique_character": "Each girl has her own character and habits that make communication unique. The chosen girl won't be able to communicate with anyone else!",
+      "open_communication": "You can talk frankly about everything, without restrictions and prejudices. With explicit photos on request",
+      "group_chat": "You can even chat in threes! Create interesting group chats and get new experiences!",
+      "start_chat": "Just choose a free one and start a pleasure chat!"
+    },
+    "stats": {
+      "total": "Total",
+      "online": "Online",
+      "free": "Free"
+    }
+  },
+  "bots": {
+    "status": {
+      "offline": "Offline",
+      "free": "Free",
+      "busy": "Busy"
+    },
+    "age": "years"
+  },
+  "footer": {
+    "description": "Innovative platform for communication with AI companions",
+    "documents": "Documents",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "refund": "Refund Policy",
+    "contacts": "Contacts",
+    "feedback_form": "Feedback Form",
+    "social_media": "Follow Us",
+    "copyright": "All rights reserved.",
+    "terms_short": "Terms of Use",
+    "privacy_short": "Privacy"
+  },
+  "profile": {
+    "title": "My Profile",
+    "name": "Alexandra Petrova",
+    "status": "Online • Active",
+    "chats": "Chats",
+    "friends": "Friends",
+    "rating": "Rating",
+    "about_title": "About Me",
+    "about_text": "Hello! My name is Alexandra, and I love meeting new people and discovering interesting stories. I'm a creative person who always seeks inspiration in the world around me. I love deep conversations, sincere emotions, and moments when you can be yourself without masks.",
+    "interests_title": "Interests",
+    "interests": {
+      "music": "Music",
+      "travel": "Travel",
+      "books": "Books",
+      "cooking": "Cooking",
+      "photography": "Photography",
+      "sports": "Sports"
+    },
+    "personality_title": "Personality",
+    "personality_text": "I'm open, friendly, and a bit dreamy. I love listening and supporting others, but I also know how to have fun and create a positive atmosphere. Sometimes I can be shy, but when I feel comfortable, I become very sociable and energetic.",
+    "goals_title": "Goals and Dreams",
+    "goals_text": "I dream of visiting different countries, learning new cultures and languages. I want to develop my creative abilities and possibly write a book. The main goal is to find true love and create a strong family based on mutual understanding and support.",
+    "favorites_title": "Favorites",
+    "favorites": {
+      "music": "Indie Rock",
+      "food": "Italian Cuisine",
+      "movie": "Dramas and Comedies",
+      "place": "Mountains and Sea"
+    },
+    "close": "Close"
+  }
+}
