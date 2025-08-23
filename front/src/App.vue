@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import AppFooter from '@/components/common/AppFooter.vue'
-// Основной компонент приложения
 </script>
 
 <template>

@@ -19,14 +19,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['vue', 'vue-router', 'pinia'],
-          i18n: ['vue-i18n']
-        }
-      }
-    }
+    sourcemap: true
   }
 })
