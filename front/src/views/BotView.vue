@@ -171,12 +171,16 @@ watch(() => route.params.id, (newBotId) => {
 
 
 const moodPercentage = computed(() => {
-  if (!bot.value?.personality?.mood) return 50
-  return Math.max(0, Math.min(100, (bot.value.personality.mood + 100) / 2))
+  const moodValue = bot.value?.personality?.mood
+  console.log('Mood value:', moodValue, 'Type:', typeof moodValue)
+  if (typeof moodValue !== 'number') return 50
+  return Math.max(0, Math.min(100, (moodValue + 100) / 2))
 })
 
 const moodText = computed(() => {
-  const mood = bot.value?.personality?.mood || 0
+  const mood = bot.value?.personality?.mood
+  if (typeof mood !== 'number') return 'Настроение не указано'
+  
   if (mood > 70) return 'Отличное настроение 😊'
   if (mood > 40) return 'Хорошее настроение 🙂'
   if (mood > 0) return 'Нормальное настроение 😐'
@@ -518,6 +522,15 @@ const toggleFavorite = () => {
     padding: 1.5rem;
   }
 
+  .mood-indicator {
+    gap: 0.75rem;
+  }
+
+  .mood-text {
+    min-width: 150px;
+    font-size: 0.875rem;
+  }
+
   .action-buttons {
     flex-direction: column;
     gap: 1rem;
@@ -573,11 +586,18 @@ const toggleFavorite = () => {
   .mood-indicator {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .mood-bar {
+    width: 100%;
+    height: 10px;
   }
 
   .mood-text {
     min-width: auto;
+    font-size: 0.875rem;
   }
 
   .action-buttons {

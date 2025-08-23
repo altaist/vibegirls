@@ -161,13 +161,36 @@ const goBack = () => {
 
 /* Мобильная адаптация */
 @media (max-width: 768px) {
+  .navbar {
+    height: 64px;
+    min-height: 64px;
+  }
+  
+  .balance {
+    padding: 0.375rem 0.75rem;
+    margin-right: 0.75rem;
+  }
+  
   .balance-amount {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
   
   .profile-avatar {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .avatar-placeholder {
+    font-size: 1rem;
+  }
+  
+  .header-logo {
+    width: 28px;
+    height: 28px;
+  }
+  
+  h1 {
+    font-size: 1.25rem !important;
   }
 }
 </style>
