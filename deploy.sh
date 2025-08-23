@@ -56,10 +56,26 @@ check_requirements() {
     
     # Проверка версии Node.js
     NODE_VERSION=$(node -v | cut -d'v' -f2)
-    REQUIRED_VERSION="20.19.0"
+    NODE_MAJOR=$(echo $NODE_VERSION | cut -d'.' -f1)
     
-    if [ "$(printf '%s\n' "$REQUIRED_VERSION" "$NODE_VERSION" | sort -V | head -n1)" != "$REQUIRED_VERSION" ]; then
-        error "Требуется Node.js версии $REQUIRED_VERSION или выше. Текущая версия: $NODE_VERSION"
+    # Проверяем совместимость: Node.js 20.19+, 21.x, или 22.12+
+    if [ "$NODE_MAJOR" -eq 20 ]; then
+        REQUIRED_MINOR="20.19.0"
+        if [ "$(printf '%s\n' "$REQUIRED_MINOR" "$NODE_VERSION" | sort -V | head -n1)" != "$REQUIRED_MINOR" ]; then
+            error "Для Node.js 20.x требуется версия 20.19.0 или выше. Текущая версия: $NODE_VERSION"
+            exit 1
+        fi
+    elif [ "$NODE_MAJOR" -eq 21 ]; then
+        # Node.js 21.x поддерживается
+        log "Node.js 21.x поддерживается"
+    elif [ "$NODE_MAJOR" -ge 22 ]; then
+        REQUIRED_MINOR="22.12.0"
+        if [ "$(printf '%s\n' "$REQUIRED_MINOR" "$NODE_VERSION" | sort -V | head -n1)" != "$REQUIRED_MINOR" ]; then
+            error "Для Node.js 22.x требуется версия 22.12.0 или выше. Текущая версия: $NODE_VERSION"
+            exit 1
+        fi
+    else
+        error "Неподдерживаемая версия Node.js: $NODE_VERSION. Требуется: 20.19+, 21.x, или 22.12+"
         exit 1
     fi
     
