@@ -40,7 +40,7 @@ const buttonClasses = computed(() => [
   `btn-${props.variant}`,
   `btn-${props.size}`,
   {
-    'btn-custom': props.variant === 'primary',
+    'btn-custom': props.variant === 'primary' || props.variant === 'secondary',
     'btn-outline-custom': props.variant === 'outline',
     'btn-ghost': props.variant === 'ghost',
     'rounded-pill': props.rounded
@@ -52,6 +52,7 @@ const buttonClasses = computed(() => [
 .btn-custom {
   background: var(--gradient-primary);
   border: none;
+  border-radius: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;

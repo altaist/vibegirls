@@ -14,6 +14,8 @@ export interface Bot {
   }>; // история активностей
   mood: string; // текущее настроение
   description: string; // описание о себе
+  chatPrice: number; // стоимость чата в валентинках
+  exclusivePrice: number; // стоимость эксклюзива в валентинках
   
   // Персональность
   personality: {

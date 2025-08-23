@@ -100,16 +100,35 @@
             <p>{{ bot?.currentActivity || 'Не указана' }}</p>
           </div>
 
-                      <!-- Кнопки действий -->
-          <div class="action-buttons">
-            <BaseButton 
-              variant="primary" 
-              size="lg" 
-              @click="startChat"
-            >
-              Начать чат
-            </BaseButton>
-          </div>
+                                          <!-- Кнопки действий -->
+                    <div class="action-buttons">
+                      <div class="price-info">
+                        <span class="price-label">Стоимость чата</span>
+                        <span class="price-value">{{ bot?.chatPrice || 0 }} валентинок</span>
+                      </div>
+                      <BaseButton 
+                        variant="primary" 
+                        size="lg" 
+                        @click="startChat"
+                      >
+                        Начать чат
+                      </BaseButton>
+                    </div>
+                    
+                    <!-- Эксклюзив -->
+                    <div class="exclusive-section">
+                      <div class="price-info">
+                        <span class="price-label">Стоимость эксклюзива</span>
+                        <span class="price-value">{{ bot?.exclusivePrice || 0 }} валентинок</span>
+                      </div>
+                      <BaseButton 
+                        variant="secondary" 
+                        size="lg" 
+                        @click="buyExclusive"
+                      >
+                        Купить эксклюзив
+                      </BaseButton>
+                    </div>
           </div>
         </div>
       </div>
@@ -169,6 +188,11 @@ const startChat = () => {
   if (bot.value) {
     router.push(`/chat/${bot.value.id}`)
   }
+}
+
+const buyExclusive = () => {
+  // Логика покупки эксклюзива
+  console.log('Покупаем эксклюзив у', bot.value?.name)
 }
 
 const toggleFavorite = () => {
@@ -398,14 +422,51 @@ const toggleFavorite = () => {
 
 .action-buttons {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+/* Эксклюзив секция */
+.exclusive-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   padding: 2rem;
   background: white;
   border-radius: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
+}
+
+/* Информация о цене */
+.price-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
 }
 
 /* Мобильная адаптация */
@@ -461,6 +522,20 @@ const toggleFavorite = () => {
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem;
+  }
+  
+  .exclusive-section {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .price-label {
+    font-size: 0.75rem;
+  }
+  
+  .price-value {
+    font-size: 1.25rem;
   }
 }
 

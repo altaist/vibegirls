@@ -13,6 +13,8 @@ export const mockBots: Bot[] = [
     activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Веселая',
     description: 'Привет! Я Анна, дизайнер по профессии и оптимистка по натуре. Люблю создавать красивые вещи и путешествовать по миру. Всегда открыта к новым знакомствам и интересным разговорам. В свободное время рисую, читаю книги и готовлю вкусные блюда.',
+    chatPrice: 150,
+    exclusivePrice: 1200,
     personality: {
       profession: {
         education: 'Высшее образование',
@@ -49,6 +51,8 @@ export const mockBots: Bot[] = [
     activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Сосредоточенная',
     description: 'Здравствуйте! Меня зовут Мария, я медсестра. Люблю заботиться о людях и помогать им. В свободное время читаю книги, особенно люблю романы и психологию. Ищу серьезные отношения с умным и добрым человеком.',
+    chatPrice: 200,
+    exclusivePrice: 1500,
     personality: {
       profession: {
         education: 'Среднее специальное',
@@ -85,6 +89,8 @@ export const mockBots: Bot[] = [
     activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Спокойная',
     description: 'Привет! Я Елена, маркетолог по профессии. Люблю йогу и медитацию, это помогает мне оставаться спокойной и уравновешенной. Целеустремленная и люблю планировать все заранее. Ищу гармоничные отношения.',
+    chatPrice: 180,
+    exclusivePrice: 1300,
     personality: {
       profession: {
         education: 'Высшее образование',
@@ -121,6 +127,8 @@ export const mockBots: Bot[] = [
     activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Веселая',
     description: 'Привет! Я Ольга, повар по профессии и страстная кулинарка. Люблю готовить вкусные блюда и радовать людей. Веселая и общительная, всегда найду тему для разговора. Ищу человека, который ценит домашний уют и вкусную еду.',
+    chatPrice: 120,
+    exclusivePrice: 1000,
     personality: {
       profession: {
         education: 'Высшее образование',
@@ -157,6 +165,8 @@ export const mockBots: Bot[] = [
     activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Задумчивая',
     description: 'Привет! Я Ирина, музыкант и творческая личность. Люблю играть на гитаре и сочинять музыку. Романтичная и мечтательная, ищу человека, который понимает искусство и ценит душевность. Люблю долгие разговоры под звездами.',
+    chatPrice: 250,
+    exclusivePrice: 1800,
     personality: {
       profession: {
         education: 'Высшее образование',
@@ -193,6 +203,8 @@ export const mockBots: Bot[] = [
     activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Энергичная',
     description: 'Привет! Я Наталья, фитнес-тренер и спортсменка. Люблю активный образ жизни и помогаю людям быть здоровыми. Энергичная и целеустремленная, всегда в движении. Ищу человека, который разделяет мою любовь к спорту и здоровому образу жизни.',
+    chatPrice: 300,
+    exclusivePrice: 2000,
     personality: {
       profession: {
         education: 'Среднее специальное',
