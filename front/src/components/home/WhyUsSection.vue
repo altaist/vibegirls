@@ -111,28 +111,30 @@ import SectionTitle from '../common/SectionTitle.vue';
 @media (max-width: 768px) {
   .why-us-card {
     padding: 2rem 1.5rem;
+    margin-bottom: 1rem; /* Уменьшаем расстояние между блоками */
   }
   
   .why-us-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem; /* Увеличиваем размер заголовка */
   }
   
   .why-us-text {
-    font-size: 1rem;
+    font-size: 1.25rem; /* Увеличиваем размер текста */
   }
 }
 
 @media (max-width: 480px) {
   .why-us-card {
     padding: 1.5rem 1rem;
+    margin-bottom: 0.75rem; /* Еще меньше расстояние для маленьких экранов */
   }
   
   .why-us-title {
-    font-size: 1.125rem;
+    font-size: 1.375rem; /* Увеличиваем размер заголовка */
   }
   
   .why-us-text {
-    font-size: 0.875rem;
+    font-size: 1.125rem; /* Увеличиваем размер текста */
   }
 }
 </style>

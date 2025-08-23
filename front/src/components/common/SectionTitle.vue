@@ -48,7 +48,6 @@ const subtitleColor = computed(() => {
   font-size: 1.5rem;
   line-height: 1.4;
   letter-spacing: 0.01em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin: 0;
 }
 

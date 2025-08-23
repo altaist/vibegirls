@@ -28,9 +28,10 @@
   height: 100vh;
   min-height: 600px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+  padding-bottom: 8rem; /* Увеличиваем отступ для десктопа */
 }
 
 .hero-background {
@@ -97,6 +98,7 @@
   .hero-section {
     height: 80vh;
     min-height: 500px;
+    padding-bottom: 4rem; /* Возвращаем меньший отступ для мобильной */
   }
   
   .hero-title {

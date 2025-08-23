@@ -33,10 +33,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 2rem;
+  gap: 0.75rem;
+  padding: 1.5rem;
   min-width: 200px;
-  margin: 0 4rem 2rem 0;
+  margin: 0 4rem 1.5rem 0;
 }
 
 .stats-number {
