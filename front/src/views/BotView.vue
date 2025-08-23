@@ -100,8 +100,8 @@
             <p>{{ bot?.currentActivity || 'Не указана' }}</p>
           </div>
 
-                                          <!-- Кнопки действий -->
-                    <div class="action-buttons">
+                    <!-- Кнопки действий - показываем только если девушка свободна -->
+                    <div v-if="!isBusy" class="action-buttons">
                       <div class="price-info">
                         <span class="price-label">Стоимость чата</span>
                         <span class="price-value">{{ bot?.chatPrice || 0 }} валентинок</span>
@@ -115,8 +115,8 @@
                       </BaseButton>
                     </div>
                     
-                    <!-- Эксклюзив -->
-                    <div class="exclusive-section">
+                    <!-- Эксклюзив - показываем только если девушка свободна -->
+                    <div v-if="!isBusy" class="exclusive-section">
                       <div class="price-info">
                         <span class="price-label">Стоимость эксклюзива</span>
                         <span class="price-value">{{ bot?.exclusivePrice || 0 }} валентинок</span>
@@ -128,6 +128,29 @@
                       >
                         Купить эксклюзив
                       </BaseButton>
+                    </div>
+
+                    <!-- Блок для занятых девушек -->
+                    <div v-if="isBusy" class="busy-notification-section">
+                      <div class="price-info">
+                        <span class="price-label">Попросить написать когда освободится</span>
+                        <span class="price-value">20 валентинок</span>
+                      </div>
+                      <BaseButton 
+                        variant="primary" 
+                        size="lg" 
+                        @click="requestNotification"
+                      >
+                        Запросить уведомление
+                      </BaseButton>
+                    </div>
+
+                    <!-- Комментарий о стоимости -->
+                    <div class="cost-comment">
+                      <p class="comment-text">
+                        Стоимость работы с ботом зависит от прокачки вашего профиля. 
+                        <router-link to="/profile" class="profile-link">Прокачать профиль</router-link>
+                      </p>
                     </div>
           </div>
         </div>
@@ -203,6 +226,17 @@ const toggleFavorite = () => {
   if (bot.value) {
     bot.value.isFavorite = !bot.value.isFavorite
   }
+}
+
+// Проверяем, занята ли девушка
+const isBusy = computed(() => {
+  return bot.value?.communicationStatus === 'busy'
+})
+
+// Функция для запроса уведомления о свободе
+const requestNotification = () => {
+  console.log('Запрашиваем уведомление когда освободится', bot.value?.name)
+  // Здесь будет логика отправки запроса
 }
 </script>
 
@@ -449,6 +483,45 @@ const toggleFavorite = () => {
   margin-bottom: 2rem;
 }
 
+/* Блок уведомления для занятых девушек */
+.busy-notification-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+/* Комментарий о стоимости */
+.cost-comment {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.comment-text {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.profile-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.profile-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
 /* Информация о цене */
 .price-info {
   text-align: center;
@@ -543,12 +616,26 @@ const toggleFavorite = () => {
     padding: 1.5rem;
   }
   
+  .busy-notification-section {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
   .price-label {
     font-size: 0.75rem;
   }
   
   .price-value {
     font-size: 1.25rem;
+  }
+  
+  .cost-comment {
+    padding: 1.5rem;
+  }
+  
+  .comment-text {
+    font-size: 1rem;
   }
 }
 
@@ -602,6 +689,18 @@ const toggleFavorite = () => {
 
   .action-buttons {
     padding: 1rem;
+  }
+  
+  .busy-notification-section {
+    padding: 1rem;
+  }
+  
+  .cost-comment {
+    padding: 1.5rem;
+  }
+  
+  .comment-text {
+    font-size: 1rem;
   }
 }
 </style>
