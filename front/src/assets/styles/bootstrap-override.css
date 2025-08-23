@@ -16,7 +16,7 @@
   
   /* Градиенты */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-stats: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-stats: linear-gradient(135deg, #e085f0 0%, #e04a5c 100%);
   --gradient-features: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   
   /* Отступы */

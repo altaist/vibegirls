@@ -21,7 +21,10 @@
       </div>
       
       <div class="bot-activity" v-if="bot.currentActivity">
-        <span class="activity-text font-body">{{ bot.currentActivity }}</span>
+        <span class="activity-text font-body">
+          <span class="activity-label">Сейчас:</span> 
+          <span class="activity-value">{{ bot.currentActivity }}</span>
+        </span>
       </div>
     </div>
   </div>
@@ -119,14 +122,18 @@ const openBot = () => {
 }
 
 .bot-status {
-  padding: 0.5rem 1rem;
-  border-radius: 16px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+  cursor: default;
+  user-select: none;
+  pointer-events: none;
 }
 
 .bot-status.free {
@@ -212,7 +219,6 @@ const openBot = () => {
 .activity-text {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
-  font-style: italic;
   background: rgba(255, 255, 255, 0.15);
   padding: 0.5rem 1rem;
   border-radius: 12px;
@@ -220,6 +226,15 @@ const openBot = () => {
   position: relative;
   z-index: 2;
   backdrop-filter: blur(10px);
+}
+
+.activity-label {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.activity-value {
+  font-style: italic;
 }
 
 /* Мобильная адаптация */

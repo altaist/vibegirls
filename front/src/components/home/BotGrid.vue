@@ -46,7 +46,7 @@ const bots = [
     id: '2',
     name: 'Мария',
     age: 22,
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face',
+    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&crop=face',
     isOnline: true,
     communicationStatus: 'busy' as const,
     currentActivity: 'Работаю',
@@ -69,6 +69,7 @@ const bots = [
     avatar: 'https://images.unsplash.com/photo-1548142813-c348350df52b?w=400&h=400&fit=crop&crop=face',
     isOnline: false,
     communicationStatus: 'free' as const,
+    currentActivity: 'Лежу в постельке',
     mood: 'Спокойная'
   },
   {
