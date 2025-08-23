@@ -78,7 +78,8 @@ const pageTitle = computed(() => {
 })
 
 const openProfile = () => {
-  profileModalRef.value?.openModal()
+  // Переходим на страницу профиля
+  router.push('/profile')
 };
 
 const goBack = () => {
