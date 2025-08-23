@@ -71,6 +71,9 @@
             </div>
           </div>
 
+          <!-- Лента активностей -->
+          <ActivityFeed :activities="bot?.activityHistory || []" />
+
           <!-- Описание профиля -->
           <div class="profile-description">
             <h3>Интересы</h3>
@@ -121,6 +124,7 @@ import { mockBots } from '@/mockData/bots'
 import BaseButton from '@/components/common/base/BaseButton.vue'
 import AppHeader from '@/components/common/AppHeader.vue'
 import BotStatus from '@/components/common/BotStatus.vue'
+import ActivityFeed from '@/components/common/ActivityFeed.vue'
 import type { Bot } from '@/types/bot'
 
 const route = useRoute()

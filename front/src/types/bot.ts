@@ -8,6 +8,10 @@ export interface Bot {
   isOnline: boolean; // активна/неактивна
   communicationStatus: 'free' | 'busy'; // свободна/занята
   currentActivity: string; // что сейчас делает
+  activityHistory: Array<{
+    activity: string;
+    time: string; // "2 дня назад, вечер" или "1 день назад, день"
+  }>; // история активностей
   mood: string; // текущее настроение
   description: string; // описание о себе
   

@@ -1,4 +1,5 @@
 import type { Bot } from '@/types/bot';
+import { getRandomActivitiesWithTime } from './activities';
 
 export const mockBots: Bot[] = [
   {
@@ -9,6 +10,7 @@ export const mockBots: Bot[] = [
     isOnline: true,
     communicationStatus: 'free',
     currentActivity: 'Смотрю фильм',
+    activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Веселая',
     description: 'Привет! Я Анна, дизайнер по профессии и оптимистка по натуре. Люблю создавать красивые вещи и путешествовать по миру. Всегда открыта к новым знакомствам и интересным разговорам. В свободное время рисую, читаю книги и готовлю вкусные блюда.',
     personality: {
@@ -44,6 +46,7 @@ export const mockBots: Bot[] = [
     isOnline: true,
     communicationStatus: 'busy',
     currentActivity: 'Общаюсь с другом',
+    activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Сосредоточенная',
     description: 'Здравствуйте! Меня зовут Мария, я медсестра. Люблю заботиться о людях и помогать им. В свободное время читаю книги, особенно люблю романы и психологию. Ищу серьезные отношения с умным и добрым человеком.',
     personality: {
@@ -79,6 +82,7 @@ export const mockBots: Bot[] = [
     isOnline: false,
     communicationStatus: 'free',
     currentActivity: 'Сплю',
+    activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Спокойная',
     description: 'Привет! Я Елена, маркетолог по профессии. Люблю йогу и медитацию, это помогает мне оставаться спокойной и уравновешенной. Целеустремленная и люблю планировать все заранее. Ищу гармоничные отношения.',
     personality: {
@@ -114,6 +118,7 @@ export const mockBots: Bot[] = [
     isOnline: true,
     communicationStatus: 'free',
     currentActivity: 'Готовлю ужин',
+    activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Веселая',
     description: 'Привет! Я Ольга, повар по профессии и страстная кулинарка. Люблю готовить вкусные блюда и радовать людей. Веселая и общительная, всегда найду тему для разговора. Ищу человека, который ценит домашний уют и вкусную еду.',
     personality: {
@@ -149,6 +154,7 @@ export const mockBots: Bot[] = [
     isOnline: true,
     communicationStatus: 'free',
     currentActivity: 'Слушаю музыку',
+    activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Задумчивая',
     description: 'Привет! Я Ирина, музыкант и творческая личность. Люблю играть на гитаре и сочинять музыку. Романтичная и мечтательная, ищу человека, который понимает искусство и ценит душевность. Люблю долгие разговоры под звездами.',
     personality: {
@@ -184,6 +190,7 @@ export const mockBots: Bot[] = [
     isOnline: true,
     communicationStatus: 'busy',
     currentActivity: 'Тренируюсь',
+    activityHistory: getRandomActivitiesWithTime(5),
     mood: 'Энергичная',
     description: 'Привет! Я Наталья, фитнес-тренер и спортсменка. Люблю активный образ жизни и помогаю людям быть здоровыми. Энергичная и целеустремленная, всегда в движении. Ищу человека, который разделяет мою любовь к спорту и здоровому образу жизни.',
     personality: {
