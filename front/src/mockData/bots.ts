@@ -8,7 +8,7 @@ export const mockBots: Bot[] = [
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&h=800&fit=crop&crop=face',
     isOnline: true,
     communicationStatus: 'free',
-    currentActivity: 'Смотрит фильм',
+    currentActivity: 'Смотрю фильм',
     mood: 'Веселая',
     description: 'Привет! Я Анна, дизайнер по профессии и оптимистка по натуре. Люблю создавать красивые вещи и путешествовать по миру. Всегда открыта к новым знакомствам и интересным разговорам. В свободное время рисую, читаю книги и готовлю вкусные блюда.',
     personality: {
@@ -43,7 +43,7 @@ export const mockBots: Bot[] = [
     avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&h=800&fit=crop&crop=face',
     isOnline: true,
     communicationStatus: 'busy',
-    currentActivity: 'Общается с другом',
+    currentActivity: 'Общаюсь с другом',
     mood: 'Сосредоточенная',
     description: 'Здравствуйте! Меня зовут Мария, я медсестра. Люблю заботиться о людях и помогать им. В свободное время читаю книги, особенно люблю романы и психологию. Ищу серьезные отношения с умным и добрым человеком.',
     personality: {
@@ -78,7 +78,7 @@ export const mockBots: Bot[] = [
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=800&fit=crop&crop=face',
     isOnline: false,
     communicationStatus: 'free',
-    currentActivity: 'Спит',
+    currentActivity: 'Сплю',
     mood: 'Спокойная',
     description: 'Привет! Я Елена, маркетолог по профессии. Люблю йогу и медитацию, это помогает мне оставаться спокойной и уравновешенной. Целеустремленная и люблю планировать все заранее. Ищу гармоничные отношения.',
     personality: {
@@ -113,7 +113,7 @@ export const mockBots: Bot[] = [
     avatar: 'https://images.unsplash.com/photo-1548142813-c348350df52b?w=800&h=800&fit=crop&crop=face',
     isOnline: true,
     communicationStatus: 'free',
-    currentActivity: 'Готовит ужин',
+    currentActivity: 'Готовлю ужин',
     mood: 'Веселая',
     description: 'Привет! Я Ольга, повар по профессии и страстная кулинарка. Люблю готовить вкусные блюда и радовать людей. Веселая и общительная, всегда найду тему для разговора. Ищу человека, который ценит домашний уют и вкусную еду.',
     personality: {
@@ -148,7 +148,7 @@ export const mockBots: Bot[] = [
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=800&fit=crop&crop=face',
     isOnline: true,
     communicationStatus: 'free',
-    currentActivity: 'Слушает музыку',
+    currentActivity: 'Слушаю музыку',
     mood: 'Задумчивая',
     description: 'Привет! Я Ирина, музыкант и творческая личность. Люблю играть на гитаре и сочинять музыку. Романтичная и мечтательная, ищу человека, который понимает искусство и ценит душевность. Люблю долгие разговоры под звездами.',
     personality: {

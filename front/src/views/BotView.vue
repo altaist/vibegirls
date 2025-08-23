@@ -54,34 +54,14 @@
             </div>
           </div>
 
-            <!-- Описание профиля -->
-            <div class="profile-description">
-              <h3>О себе</h3>
-              <p>{{ bot?.description || 'Описание недоступно' }}</p>
-              
-              <h3>Интересы</h3>
-              <div class="interests-tags">
-                <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.character?.hobby || 'Хобби' }}</span>
-                <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.profession?.position || 'Профессия' }}</span>
-                <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.character?.type || 'Тип личности' }}</span>
-              </div>
+                      <!-- О себе -->
+          <div class="profile-card">
+            <h3>О себе</h3>
+            <p>{{ bot?.description || 'Описание недоступно' }}</p>
+          </div>
 
-              <h3>Внешность</h3>
-              <div class="appearance-info">
-                <p><strong>Рост:</strong> {{ bot?.personality?.appearance?.height || 'Не указан' }}</p>
-                <p><strong>Вес:</strong> {{ bot?.personality?.appearance?.weight || 'Не указан' }}</p>
-                <p><strong>Цвет волос:</strong> {{ bot?.personality?.appearance?.hairColor || 'Не указан' }}</p>
-                <p><strong>Прическа:</strong> {{ bot?.personality?.appearance?.hairStyle || 'Не указана' }}</p>
-                <p><strong>Телосложение:</strong> {{ bot?.personality?.appearance?.bodyType || 'Не указано' }}</p>
-              </div>
-
-              <h3>Образование и работа</h3>
-              <p><strong>Образование:</strong> {{ bot?.personality?.profession?.education || 'Не указано' }}</p>
-              <p><strong>Должность:</strong> {{ bot?.personality?.profession?.position || 'Не указана' }}</p>
-
-                          <h3>Текущая активность</h3>
-            <p>{{ bot?.currentActivity || 'Не указана' }}</p>
-
+          <!-- Настроение -->
+          <div class="profile-card">
             <h3>Настроение</h3>
             <div class="mood-indicator">
               <div class="mood-bar">
@@ -89,7 +69,33 @@
               </div>
               <span class="mood-text">{{ moodText }}</span>
             </div>
+          </div>
+
+          <!-- Описание профиля -->
+          <div class="profile-description">
+            <h3>Интересы</h3>
+            <div class="interests-tags">
+              <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.character?.hobby || 'Хобби' }}</span>
+              <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.profession?.position || 'Профессия' }}</span>
+              <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.character?.type || 'Тип личности' }}</span>
             </div>
+
+            <h3>Внешность</h3>
+            <div class="appearance-info">
+              <p><strong>Рост:</strong> {{ bot?.personality?.appearance?.height || 'Не указан' }}</p>
+              <p><strong>Вес:</strong> {{ bot?.personality?.appearance?.weight || 'Не указан' }}</p>
+              <p><strong>Цвет волос:</strong> {{ bot?.personality?.appearance?.hairColor || 'Не указан' }}</p>
+              <p><strong>Прическа:</strong> {{ bot?.personality?.appearance?.hairStyle || 'Не указана' }}</p>
+              <p><strong>Телосложение:</strong> {{ bot?.personality?.appearance?.bodyType || 'Не указано' }}</p>
+            </div>
+
+            <h3>Образование и работа</h3>
+            <p><strong>Образование:</strong> {{ bot?.personality?.profession?.education || 'Не указано' }}</p>
+            <p><strong>Должность:</strong> {{ bot?.personality?.profession?.position || 'Не указана' }}</p>
+
+            <h3>Текущая активность</h3>
+            <p>{{ bot?.currentActivity || 'Не указана' }}</p>
+          </div>
 
                       <!-- Кнопки действий -->
           <div class="action-buttons">
@@ -305,6 +311,27 @@ const toggleFavorite = () => {
   margin-top: 0.25rem;
 }
 
+.profile-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.profile-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 1rem 0;
+}
+
+.profile-card p {
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin: 0;
+}
+
 .profile-description {
   background: white;
   padding: 2rem;
@@ -418,6 +445,10 @@ const toggleFavorite = () => {
     gap: 1.5rem;
   }
 
+  .profile-card {
+    padding: 1.5rem;
+  }
+
   .profile-description {
     padding: 1.5rem;
   }
@@ -450,6 +481,10 @@ const toggleFavorite = () => {
 
   .stat-value {
     font-size: 1.5rem;
+  }
+
+  .profile-card {
+    padding: 1rem;
   }
 
   .profile-description {
