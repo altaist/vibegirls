@@ -1,12 +1,12 @@
 <template>
-  <section class="section-bot-grid position-relative">
-    <div class="bot-grid-pattern"></div>
+  <section class="section-active-girls position-relative">
+    <div class="active-girls-pattern"></div>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-10">
           <SectionTitle 
-            title="Девушки онлайн" 
-            subtitle="Выберите девушку для общения" 
+            title="Самые активные" 
+            subtitle="Девушки, которые всегда на связи" 
           />
           
           <div class="row g-4 mb-5">
@@ -16,8 +16,8 @@
           </div>
           
           <div class="text-center">
-            <button class="btn btn-primary view-all-btn" @click="viewAllBots">
-              Все девушки онлайн
+            <button class="btn btn-primary view-all-btn" @click="viewAllActiveGirls">
+              Все активные
             </button>
           </div>
         </div>
@@ -30,7 +30,7 @@
 import BotCard from '../bots/BotCard.vue';
 import SectionTitle from '../common/SectionTitle.vue';
 
-// Моковые данные для демонстрации
+// Используем те же данные для примера
 const bots = [
   {
     id: '1',
@@ -94,15 +94,14 @@ const bots = [
   }
 ];
 
-const viewAllBots = () => {
-  // Пока ничего не делаем
-  console.log('Показать всех ботов');
+const viewAllActiveGirls = () => {
+  console.log('Показать всех активных');
 };
 </script>
 
 <style scoped>
-/* Только специфичные стили для bot grid */
-.bot-grid-pattern {
+/* Стили для секции активных */
+.active-girls-pattern {
   position: absolute;
   top: 0;
   left: 0;
@@ -114,8 +113,6 @@ const viewAllBots = () => {
   background-size: 50px 50px;
   z-index: 0;
 }
-
-
 
 .view-all-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

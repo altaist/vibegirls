@@ -12,6 +12,12 @@
     <!-- Каталог девушек -->
     <BotGrid />
     
+    <!-- Новенькие -->
+    <NewGirlsSection />
+    
+    <!-- Самые активные -->
+    <ActiveGirlsSection />
+    
     <!-- Статистика сервиса -->
     <StatsSection />
   </div>
@@ -23,6 +29,8 @@ import HeroSection from '../components/home/HeroSection.vue';
 import StatsSection from '../components/home/StatsSection.vue';
 import FeaturesSection from '../components/home/FeaturesSection.vue';
 import BotGrid from '../components/home/BotGrid.vue';
+import NewGirlsSection from '../components/home/NewGirlsSection.vue';
+import ActiveGirlsSection from '../components/home/ActiveGirlsSection.vue';
 </script>
 
 <style scoped>

@@ -82,6 +82,16 @@
   padding: var(--section-padding);
 }
 
+.section-new-girls {
+  background: var(--gradient-features);
+  padding: var(--section-padding);
+}
+
+.section-active-girls {
+  background: var(--gradient-primary);
+  padding: var(--section-padding);
+}
+
 /* Карточки */
 .card-custom {
   background: var(--bs-white);
