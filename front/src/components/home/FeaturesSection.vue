@@ -16,6 +16,14 @@
             <div class="col-lg-6 mb-4">
               <div class="feature-card">
                 <p class="feature-description font-body">
+                  {{ $t('home.features.exclusive_communication') }}
+                </p>
+              </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+              <div class="feature-card">
+                <p class="feature-description font-body">
                   {{ $t('home.features.open_communication') }}
                 </p>
               </div>
@@ -25,6 +33,14 @@
               <div class="feature-card">
                 <p class="feature-description font-body">
                   {{ $t('home.features.group_chat') }}
+                </p>
+              </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+              <div class="feature-card">
+                <p class="feature-description font-body">
+                  {{ $t('home.features.interesting_features') }}
                 </p>
               </div>
             </div>
