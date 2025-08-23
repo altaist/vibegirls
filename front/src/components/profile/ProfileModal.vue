@@ -118,6 +118,10 @@ defineExpose({
   backdrop-filter: blur(10px);
 }
 
+:deep(.modal-content) {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+}
+
 
 
 :deep(.modal-close) {
@@ -144,7 +148,7 @@ defineExpose({
   color: #ee5a52 !important;
 }
 
-.profile-modal :deep(.modal-body) {
+:deep(.modal-body) {
   padding: 0;
 }
 

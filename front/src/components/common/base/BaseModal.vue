@@ -11,11 +11,13 @@
             ✕
           </button>
         </div>
-        <div class="modal-body">
-          <slot />
-        </div>
-        <div v-if="$slots.footer" class="modal-footer">
-          <slot name="footer" />
+        <div class="modal-content">
+          <div class="modal-body">
+            <slot />
+          </div>
+          <div v-if="$slots.footer" class="modal-footer">
+            <slot name="footer" />
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +67,8 @@ const handleOverlayClick = () => {
   max-width: 500px;
   width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
 }
 
@@ -77,11 +80,15 @@ const handleOverlayClick = () => {
   background: #667eea;
   color: white;
   border-radius: 16px 16px 0 0;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .modal-title {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -109,6 +116,30 @@ const handleOverlayClick = () => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.modal-content {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .modal-body {
   padding: 1.5rem;
 }
@@ -119,5 +150,51 @@ const handleOverlayClick = () => {
   display: flex;
   gap: 0.75rem;
   justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+  
+  .modal-container {
+    max-height: 95vh;
+  }
+  
+  .modal-header {
+    padding: 1.25rem;
+  }
+  
+  .modal-title {
+    font-size: 1.125rem;
+  }
+  
+  .modal-content::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+  
+  .modal-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-title {
+    font-size: 1rem;
+  }
+  
+  .modal-close {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
 }
 </style>
