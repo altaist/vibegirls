@@ -8,6 +8,8 @@ export interface Bot {
   isOnline: boolean; // активна/неактивна
   communicationStatus: 'free' | 'busy'; // свободна/занята
   currentActivity: string; // что сейчас делает
+  mood: string; // текущее настроение
+  description: string; // описание о себе
   
   // Персональность
   personality: {

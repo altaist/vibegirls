@@ -3,8 +3,26 @@
     <div class="container">
       <div class="navbar-brand">
         <div class="d-flex align-items-center">
-          <img src="@/assets/images/icons/logo.svg" alt="Logo" class="header-logo me-2" />
-          <h1 class="font-display-bold text-white mb-0">VibeGirls</h1>
+          <!-- Кнопка назад для страниц второго уровня -->
+          <button 
+            v-if="isSecondLevelPage" 
+            class="btn btn-link p-0 me-3" 
+            @click="goBack"
+            style="color: white; text-decoration: none;"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <!-- Название страницы для страниц второго уровня -->
+          <h1 v-if="isSecondLevelPage" class="font-display-bold text-white mb-0">{{ pageTitle }}</h1>
+          
+          <!-- Логотип для других страниц -->
+          <template v-else>
+            <img src="@/assets/images/icons/logo.svg" alt="Logo" class="header-logo me-2" />
+            <h1 class="font-display-bold text-white mb-0">VibeGirls</h1>
+          </template>
         </div>
       </div>
       
@@ -29,21 +47,52 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import ProfileModal from '@/components/profile/ProfileModal.vue'
+
+const route = useRoute()
+const router = useRouter()
 
 // Пока используем статические данные
 const balance = 200;
 
 const profileModalRef = ref<InstanceType<typeof ProfileModal> | null>(null)
 
+const isSecondLevelPage = computed(() => {
+  // Страницы второго уровня: bot, chat, profile
+  return ['bot', 'chat', 'profile'].includes(route.name as string)
+})
+
+const pageTitle = computed(() => {
+  switch (route.name) {
+    case 'bot':
+      return 'AI-Девушка'
+    case 'chat':
+      return 'Чат'
+    case 'profile':
+      return 'Мой профиль'
+    default:
+      return ''
+  }
+})
+
 const openProfile = () => {
   profileModalRef.value?.openModal()
+};
+
+const goBack = () => {
+  router.back()
 };
 </script>
 
 <style scoped>
 /* Стили для header */
+.navbar {
+  height: 56px;
+  min-height: 56px;
+}
+
 .header-logo {
   width: 32px;
   height: 32px;
@@ -52,6 +101,15 @@ const openProfile = () => {
 }
 
 .header-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Стили для кнопки назад */
+.btn-link {
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-link:hover {
   transform: scale(1.1);
 }
 

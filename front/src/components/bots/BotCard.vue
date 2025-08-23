@@ -3,9 +3,11 @@
     <div class="bot-image-container">
       <img :src="bot.avatar" :alt="bot.name" class="bot-image" />
       <div class="bot-overlay">
-        <div class="bot-status" :class="statusClass">
-          {{ statusText }}
-        </div>
+        <BotStatus 
+          :is-online="bot.isOnline"
+          :communication-status="bot.communicationStatus"
+          size="md"
+        />
       </div>
     </div>
     
@@ -33,35 +35,18 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useRouter } from 'vue-router';
+import type { Bot } from '@/types/bot';
+import BotStatus from '@/components/common/BotStatus.vue';
 
 const { t } = useI18n();
-
-interface Bot {
-  id: string;
-  name: string;
-  age: number;
-  avatar: string;
-  isOnline: boolean;
-  communicationStatus: 'free' | 'busy';
-  currentActivity?: string;
-  mood: string;
-}
+const router = useRouter();
 
 interface Props {
   bot: Bot;
 }
 
 const props = defineProps<Props>();
-
-const statusClass = computed(() => {
-  if (!props.bot.isOnline) return 'offline';
-  return props.bot.communicationStatus === 'free' ? 'free' : 'busy';
-});
-
-const statusText = computed(() => {
-  if (!props.bot.isOnline) return t('bots.status.offline');
-  return props.bot.communicationStatus === 'free' ? t('bots.status.free') : t('bots.status.busy');
-});
 
 const moodIcon = computed(() => {
   const mood = props.bot.mood.toLowerCase();
@@ -74,8 +59,7 @@ const moodIcon = computed(() => {
 });
 
 const openBot = () => {
-  // Пока ничего не делаем
-  console.log('Открыть бота:', props.bot.name);
+  router.push(`/bot/${props.bot.id}`);
 };
 </script>
 
@@ -121,35 +105,7 @@ const openBot = () => {
   right: 1rem;
 }
 
-.bot-status {
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: none;
-  cursor: default;
-  user-select: none;
-  pointer-events: none;
-}
 
-.bot-status.free {
-  background: rgba(16, 185, 129, 0.9);
-  color: var(--bs-white);
-}
-
-.bot-status.busy {
-  background: rgba(245, 158, 11, 0.9);
-  color: var(--bs-white);
-}
-
-.bot-status.offline {
-  background: rgba(107, 114, 128, 0.9);
-  color: var(--bs-white);
-}
 
 .bot-info {
   position: absolute;

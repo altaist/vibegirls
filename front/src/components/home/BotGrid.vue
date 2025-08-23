@@ -29,70 +29,10 @@
 <script setup lang="ts">
 import BotCard from '../bots/BotCard.vue';
 import SectionTitle from '../common/SectionTitle.vue';
+import { mockBots } from '@/mockData/bots';
 
-// Моковые данные для демонстрации
-const bots = [
-  {
-    id: '1',
-    name: 'Анна',
-    age: 24,
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
-    isOnline: true,
-    communicationStatus: 'free' as const,
-    currentActivity: 'Готовлю ужин',
-    mood: 'Веселая'
-  },
-  {
-    id: '2',
-    name: 'Мария',
-    age: 22,
-    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&crop=face',
-    isOnline: true,
-    communicationStatus: 'busy' as const,
-    currentActivity: 'Работаю',
-    mood: 'Сосредоточенная'
-  },
-  {
-    id: '3',
-    name: 'Елена',
-    age: 26,
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face',
-    isOnline: true,
-    communicationStatus: 'free' as const,
-    currentActivity: 'Смотрю фильм',
-    mood: 'Расслабленная'
-  },
-  {
-    id: '4',
-    name: 'Ольга',
-    age: 23,
-    avatar: 'https://images.unsplash.com/photo-1548142813-c348350df52b?w=400&h=400&fit=crop&crop=face',
-    isOnline: false,
-    communicationStatus: 'free' as const,
-    currentActivity: 'Лежу в постельке',
-    mood: 'Спокойная'
-  },
-  {
-    id: '5',
-    name: 'Ирина',
-    age: 25,
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
-    isOnline: true,
-    communicationStatus: 'free' as const,
-    currentActivity: 'Читаю книгу',
-    mood: 'Задумчивая'
-  },
-  {
-    id: '6',
-    name: 'Наталья',
-    age: 21,
-    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&crop=face',
-    isOnline: true,
-    communicationStatus: 'busy' as const,
-    currentActivity: 'Тренируюсь',
-    mood: 'Энергичная'
-  }
-];
+// Используем моковые данные
+const bots = mockBots;
 
 const viewAllBots = () => {
   // Пока ничего не делаем
