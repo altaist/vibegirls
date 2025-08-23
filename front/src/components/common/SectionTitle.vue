@@ -1,26 +1,41 @@
 <template>
   <div class="section-header text-center mb-5">
-    <h2 class="section-title">
+    <h2 class="section-title" :style="{ color: titleColor }">
       {{ title }}
     </h2>
-    <p v-if="subtitle" class="section-subtitle">
+    <p v-if="subtitle" class="section-subtitle" :style="{ color: subtitleColor }">
       {{ subtitle }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 interface Props {
   title: string;
   subtitle?: string;
+  color?: string;
 }
 
-defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  color: 'white'
+});
+
+const titleColor = computed(() => props.color);
+const subtitleColor = computed(() => {
+  if (props.color === 'white') {
+    return 'rgba(255, 255, 255, 0.8)';
+  } else if (props.color === '#1e3a8a') {
+    return '#3b82f6'; // Более светлый синий для подзаголовка
+  } else {
+    return 'rgba(0, 0, 0, 0.7)';
+  }
+});
 </script>
 
 <style scoped>
 .section-title {
-  color: white;
   font-size: 5.5rem;
   line-height: 1;
   letter-spacing: -0.05em;
@@ -30,7 +45,6 @@ defineProps<Props>();
 }
 
 .section-subtitle {
-  color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
   line-height: 1.4;
   letter-spacing: 0.01em;

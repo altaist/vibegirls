@@ -20,6 +20,9 @@
     
     <!-- Статистика сервиса -->
     <StatsSection />
+    
+    <!-- Почему мы? -->
+    <WhyUsSection />
   </div>
 </template>
 
@@ -31,6 +34,7 @@ import FeaturesSection from '../components/home/FeaturesSection.vue';
 import BotGrid from '../components/home/BotGrid.vue';
 import NewGirlsSection from '../components/home/NewGirlsSection.vue';
 import ActiveGirlsSection from '../components/home/ActiveGirlsSection.vue';
+import WhyUsSection from '../components/home/WhyUsSection.vue';
 </script>
 
 <style scoped>
