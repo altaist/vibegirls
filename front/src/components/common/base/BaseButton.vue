@@ -72,6 +72,11 @@ const buttonClasses = computed(() => [
   color: white;
 }
 
+.btn-custom.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+}
+
 .btn-custom:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
@@ -140,23 +145,14 @@ const buttonClasses = computed(() => [
 
 .btn-standard:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
+
 
 /* Размеры кнопок */
-.btn-sm {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-}
-
-.btn-md {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-}
-
 .btn-lg {
   padding: 1rem 2rem;
-  font-size: 1.125rem;
+  font-size: 2rem;
 }
 
 /* Мобильная адаптация */

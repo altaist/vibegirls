@@ -55,95 +55,104 @@
           </div>
 
                       <!-- О себе -->
-          <div class="profile-card">
-            <h3>О себе</h3>
-            <p>{{ bot?.description || 'Описание недоступно' }}</p>
-          </div>
+          <BaseCard variant="white" title="О себе">
+            {{ bot?.description || 'Описание недоступно' }}
+          </BaseCard>
 
           <!-- Настроение -->
-          <div class="profile-card">
-            <h3>Настроение</h3>
+          <BaseCard variant="white" title="Настроение">
             <div class="mood-indicator">
               <div class="mood-bar">
                 <div class="mood-fill" :style="{ width: moodPercentage + '%' }"></div>
               </div>
               <span class="mood-text">{{ moodText }}</span>
             </div>
-          </div>
+          </BaseCard>
 
           <!-- Лента активностей -->
           <ActivityFeed :activities="bot?.activityHistory || []" />
 
-          <!-- Описание профиля -->
-          <div class="profile-description">
-            <h3>Интересы</h3>
+          <!-- Интересы -->
+          <BaseCard variant="white" title="Интересы">
             <div class="interests-tags">
-              <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.character?.hobby || 'Хобби' }}</span>
-              <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.profession?.position || 'Профессия' }}</span>
-              <span class="badge bg-danger me-2 mb-2">{{ bot?.personality?.character?.type || 'Тип личности' }}</span>
+              <BaseTag variant="danger" class="me-2 mb-2">{{ bot?.personality?.character?.hobby || 'Хобби' }}</BaseTag>
+              <BaseTag variant="danger" class="me-2 mb-2">{{ bot?.personality?.profession?.position || 'Профессия' }}</BaseTag>
+              <BaseTag variant="danger" class="me-2 mb-2">{{ bot?.personality?.character?.type || 'Тип личности' }}</BaseTag>
             </div>
+          </BaseCard>
 
-            <h3>Внешность</h3>
+          <!-- Внешность -->
+          <BaseCard variant="white" title="Внешность">
             <div class="appearance-info">
-              <p><strong>Рост:</strong> {{ bot?.personality?.appearance?.height || 'Не указан' }}</p>
-              <p><strong>Вес:</strong> {{ bot?.personality?.appearance?.weight || 'Не указан' }}</p>
-              <p><strong>Цвет волос:</strong> {{ bot?.personality?.appearance?.hairColor || 'Не указан' }}</p>
-              <p><strong>Прическа:</strong> {{ bot?.personality?.appearance?.hairStyle || 'Не указана' }}</p>
-              <p><strong>Телосложение:</strong> {{ bot?.personality?.appearance?.bodyType || 'Не указано' }}</p>
+              <div><strong>Рост:</strong> {{ bot?.personality?.appearance?.height || 'Не указан' }}</div>
+              <div><strong>Вес:</strong> {{ bot?.personality?.appearance?.weight || 'Не указан' }}</div>
+              <div><strong>Цвет волос:</strong> {{ bot?.personality?.appearance?.hairColor || 'Не указан' }}</div>
+              <div><strong>Прическа:</strong> {{ bot?.personality?.appearance?.hairStyle || 'Не указана' }}</div>
+              <div><strong>Телосложение:</strong> {{ bot?.personality?.appearance?.bodyType || 'Не указано' }}</div>
             </div>
+          </BaseCard>
 
-            <h3>Образование и работа</h3>
-            <p><strong>Образование:</strong> {{ bot?.personality?.profession?.education || 'Не указано' }}</p>
-            <p><strong>Должность:</strong> {{ bot?.personality?.profession?.position || 'Не указана' }}</p>
+          <!-- Образование и работа -->
+          <BaseCard variant="white" title="Образование и работа">
+            <div><strong>Образование:</strong> {{ bot?.personality?.profession?.education || 'Не указано' }}</div>
+            <div><strong>Должность:</strong> {{ bot?.personality?.profession?.position || 'Не указана' }}</div>
+          </BaseCard>
 
-            <h3>Текущая активность</h3>
-            <p>{{ bot?.currentActivity || 'Не указана' }}</p>
-          </div>
+          <!-- Текущая активность -->
+          <BaseCard variant="white" title="Текущая активность">
+            {{ bot?.currentActivity || 'Не указана' }}
+          </BaseCard>
 
                     <!-- Кнопки действий - показываем только если девушка свободна -->
-                    <div v-if="!isBusy" class="action-buttons">
-                      <div class="price-info">
-                        <span class="price-label">Стоимость чата</span>
-                        <span class="price-value">{{ bot?.chatPrice || 0 }} валентинок</span>
+                    <BaseCard v-if="!isBusy" variant="white">
+                      <div class="action-buttons">
+                        <div class="price-info">
+                          <span class="price-label">Стоимость чата</span>
+                          <span class="price-value">{{ bot?.chatPrice || 0 }} валентинок</span>
+                        </div>
+                        <BaseButton 
+                          variant="primary" 
+                          size="lg" 
+                          @click="startChat"
+                        >
+                          Начать чат
+                        </BaseButton>
                       </div>
-                      <BaseButton 
-                        variant="standard" 
-                        size="lg" 
-                        @click="startChat"
-                      >
-                        Начать чат
-                      </BaseButton>
-                    </div>
+                    </BaseCard>
                     
                     <!-- Эксклюзив - показываем только если девушка свободна -->
-                    <div v-if="!isBusy" class="exclusive-section">
-                      <div class="price-info">
-                        <span class="price-label">Стоимость эксклюзива</span>
-                        <span class="price-value">{{ bot?.exclusivePrice || 0 }} валентинок</span>
+                    <BaseCard v-if="!isBusy" variant="white">
+                      <div class="exclusive-section">
+                        <div class="price-info">
+                          <span class="price-label">Стоимость эксклюзива</span>
+                          <span class="price-value">{{ bot?.exclusivePrice || 0 }} валентинок</span>
+                        </div>
+                        <BaseButton 
+                          variant="outline" 
+                          size="lg" 
+                          @click="buyExclusive"
+                        >
+                          Купить эксклюзив
+                        </BaseButton>
                       </div>
-                      <BaseButton 
-                        variant="outline" 
-                        size="lg" 
-                        @click="buyExclusive"
-                      >
-                        Купить эксклюзив
-                      </BaseButton>
-                    </div>
+                    </BaseCard>
 
                     <!-- Блок для занятых девушек -->
-                    <div v-if="isBusy" class="busy-notification-section">
-                      <div class="price-info">
-                        <span class="price-label">Попросить написать когда освободится</span>
-                        <span class="price-value">20 валентинок</span>
+                    <BaseCard v-if="isBusy" variant="white">
+                      <div class="busy-notification-section">
+                        <div class="price-info">
+                          <span class="price-label">Попросить написать когда освободится</span>
+                          <span class="price-value">20 валентинок</span>
+                        </div>
+                        <BaseButton 
+                          variant="primary" 
+                          size="lg" 
+                          @click="requestNotification"
+                        >
+                          Запросить уведомление
+                        </BaseButton>
                       </div>
-                      <BaseButton 
-                        variant="standard" 
-                        size="lg" 
-                        @click="requestNotification"
-                      >
-                        Запросить уведомление
-                      </BaseButton>
-                    </div>
+                    </BaseCard>
 
                     <!-- Комментарий о стоимости -->
                     <div class="cost-comment">
@@ -164,6 +173,8 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { mockBots } from '@/mockData/bots'
 import BaseButton from '@/components/common/base/BaseButton.vue'
+import BaseTag from '@/components/common/base/BaseTag.vue'
+import BaseCard from '@/components/common/base/BaseCard.vue'
 import AppHeader from '@/components/common/AppHeader.vue'
 import BotStatus from '@/components/common/BotStatus.vue'
 import ActivityFeed from '@/components/common/ActivityFeed.vue'
@@ -377,54 +388,14 @@ const requestNotification = () => {
   margin-top: 0.25rem;
 }
 
-.profile-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
-}
+/* Стили карточек вынесены в BaseCard компонент */
 
-.profile-card h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--gray-900);
-  margin: 0 0 1rem 0;
-}
+/* Специфичные стили для элементов внутри карточек */
 
-.profile-card p {
-  color: var(--gray-700);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.profile-description {
-  background: white;
-  padding: 2rem;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
-}
-
-.profile-description h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--gray-900);
-  margin: 2rem 0 1rem 0;
-}
-
-.profile-description h3:first-child {
-  margin-top: 0;
-}
-
-.profile-description p {
-  color: var(--gray-700);
-  line-height: 1.6;
-  margin: 0 0 1rem 0;
-}
-
-.appearance-info p {
+.appearance-info div {
   margin: 0.5rem 0;
+  color: var(--gray-700);
+  line-height: 1.6;
 }
 
 .interests-tags {
@@ -463,11 +434,6 @@ const requestNotification = () => {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2rem;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1rem;
 }
 
 /* Эксклюзив секция */
@@ -476,11 +442,8 @@ const requestNotification = () => {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2rem;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
+  padding: 0;
+  margin: 0;
 }
 
 /* Блок уведомления для занятых девушек */
@@ -489,11 +452,6 @@ const requestNotification = () => {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2rem;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
 }
 
 /* Комментарий о стоимости */

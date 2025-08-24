@@ -1,9 +1,8 @@
 <template>
   <div :class="cardClasses">
-    <div v-if="$slots.header" class="card-header">
-      <slot name="header" />
-    </div>
     <div class="card-body">
+      <h3 v-if="title" class="card-title">{{ title }}</h3>
+      <slot name="header" />
       <slot />
     </div>
     <div v-if="$slots.footer" class="card-footer">
@@ -15,9 +14,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 interface Props {
-  variant?: 'default' | 'elevated' | 'interactive';
+  variant?: 'default' | 'elevated' | 'interactive' | 'white';
   padding?: 'sm' | 'md' | 'lg';
   hover?: boolean;
+  title?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -59,6 +59,20 @@ const cardClasses = computed(() => [
   box-shadow: var(--shadow-hover);
 }
 
+/* Белая карточка как на странице бота */
+.card-white {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.card-white p {
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
 .card-padding-sm .card-body {
   padding: 1rem;
 }
@@ -69,5 +83,12 @@ const cardClasses = computed(() => [
 
 .card-padding-lg .card-body {
   padding: 2rem;
+}
+
+/* Заголовок карточки */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
 }
 </style>
