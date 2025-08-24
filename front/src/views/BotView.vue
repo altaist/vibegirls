@@ -1,8 +1,5 @@
 <template>
-  <div class="bot-view">
-    <!-- Главная навигация -->
-    <AppHeader />
-    
+  <AppLayout>
     <!-- Большая фотография девушки -->
     <div class="bot-hero">
       <div class="bot-hero-image">
@@ -165,7 +162,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
@@ -179,6 +176,7 @@ import AppHeader from '@/components/common/AppHeader.vue'
 import BotStatus from '@/components/common/BotStatus.vue'
 import ActivityFeed from '@/components/common/ActivityFeed.vue'
 import type { Bot } from '@/types/bot'
+import AppLayout from '@/components/common/AppLayout.vue'
 
 const route = useRoute()
 const router = useRouter()

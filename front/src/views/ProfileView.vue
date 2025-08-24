@@ -1,7 +1,5 @@
 <template>
-  <div class="profile-view">
-    <AppHeader />
-    
+  <AppLayout>
     <div class="profile-container">
       <div class="profile-content">
         <div class="profile-placeholder">
@@ -16,21 +14,16 @@
         </div>
       </div>
     </div>
-  </div>
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
-import AppHeader from '@/components/common/AppHeader.vue'
+import AppLayout from '@/components/common/AppLayout.vue'
 </script>
 
 <style scoped>
-.profile-view {
-  min-height: 100vh;
-  background: #f8fafc;
-}
-
 .profile-container {
-  padding-top: 56px; /* Высота header */
+  padding-top: 0; /* Убираем padding, так как header теперь в layout */
 }
 
 .profile-content {

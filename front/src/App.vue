@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import AppFooter from '@/components/common/AppFooter.vue'
+import AppLayout from '@/components/common/AppLayout.vue'
 </script>
 
 <template>
   <div id="app">
     <router-view />
-    <AppFooter />
   </div>
 </template>
 

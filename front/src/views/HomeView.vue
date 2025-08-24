@@ -1,8 +1,5 @@
 <template>
-  <div class="home">
-    <!-- Главная навигация -->
-    <AppHeader />
-    
+  <AppLayout>
     <!-- Приветственная секция -->
     <HeroSection />
     
@@ -23,11 +20,11 @@
     
     <!-- Почему мы? -->
     <WhyUsSection />
-  </div>
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
-import AppHeader from '../components/common/AppHeader.vue';
+import AppLayout from '@/components/common/AppLayout.vue';
 import HeroSection from '../components/home/HeroSection.vue';
 import StatsSection from '../components/home/StatsSection.vue';
 import FeaturesSection from '../components/home/FeaturesSection.vue';
@@ -38,8 +35,5 @@ import WhyUsSection from '../components/home/WhyUsSection.vue';
 </script>
 
 <style scoped>
-.home {
-  min-height: 100vh;
-  background: #f8fafc;
-}
+/* Стили перенесены в AppLayout */
 </style>
