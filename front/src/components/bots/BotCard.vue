@@ -105,8 +105,6 @@ const openBot = () => {
   right: 1rem;
 }
 
-
-
 .bot-info {
   position: absolute;
   bottom: 0;

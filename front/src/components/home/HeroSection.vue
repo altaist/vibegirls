@@ -49,8 +49,6 @@
   z-index: 1;
 }
 
-
-
 .hero-content {
   position: relative;
   z-index: 2;

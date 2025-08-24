@@ -4,6 +4,7 @@
 /* Наши стили */
 @import './variables.css';
 @import './bootstrap-override.css';
+@import './components.css';
 
 /* Сброс стилей */
 *,
@@ -63,23 +64,9 @@ a:hover {
 
 
 
-.btn-error {
-  background-color: var(--error);
-  color: var(--white);
-}
+/* Стили кнопок вынесены в components.css */
 
-/* Кастомные карточки */
-.card-custom {
-  background-color: var(--white);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  padding: var(--spacing-6);
-  transition: box-shadow var(--transition-fast);
-}
-
-.card-custom:hover {
-  box-shadow: var(--shadow-lg);
-}
+/* Кастомные карточки вынесены в components.css */
 
 /* Кастомные контейнеры (если нужны) */
 .container-custom {
