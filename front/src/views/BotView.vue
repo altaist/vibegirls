@@ -284,6 +284,7 @@ const requestNotification = () => {
   position: absolute;
   top: 2rem;
   right: 2rem;
+  max-width: calc(100% - 4rem);
 }
 
 .hero-favorite {
@@ -504,6 +505,18 @@ const requestNotification = () => {
   color: var(--gray-900);
 }
 
+/* Десктопная адаптация */
+@media (min-width: 1200px) {
+  .hero-overlay {
+    right: 3rem;
+    max-width: calc(100% - 6rem);
+  }
+  
+  .hero-favorite {
+    left: 3rem;
+  }
+}
+
 /* Мобильная адаптация */
 @media (max-width: 768px) {
   .bot-hero {
@@ -633,6 +646,7 @@ const requestNotification = () => {
     align-items: flex-start;
     gap: 0.75rem;
     width: 100%;
+    display: flex;
   }
 
   .mood-bar {
@@ -643,6 +657,7 @@ const requestNotification = () => {
   .mood-text {
     min-width: auto;
     font-size: 0.875rem;
+    display: block;
   }
 
   .action-buttons {
