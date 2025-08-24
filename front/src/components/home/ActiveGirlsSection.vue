@@ -16,9 +16,13 @@
           </div>
           
           <div class="text-center">
-            <button class="btn btn-primary view-all-btn" @click="viewAllActiveGirls">
+            <BaseButton 
+              variant="rounded" 
+              size="lg" 
+              @click="viewAllActiveGirls"
+            >
               Все активные
-            </button>
+            </BaseButton>
           </div>
         </div>
       </div>
@@ -29,6 +33,7 @@
 <script setup lang="ts">
 import BotCard from '../bots/BotCard.vue';
 import SectionTitle from '../common/SectionTitle.vue';
+import BaseButton from '../common/base/BaseButton.vue';
 import { mockBots } from '@/mockData/bots';
 
 // Используем данные из mockBots
@@ -54,40 +59,5 @@ const viewAllActiveGirls = () => {
   z-index: 0;
 }
 
-.view-all-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  border-radius: 50px;
-  padding: 1rem 3rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-  transition: all 0.3s ease;
-  margin-top: 2rem;
-}
-
-.view-all-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-  color: white;
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-  .view-all-btn {
-    padding: 0.875rem 2.5rem;
-    font-size: 1.125rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .view-all-btn {
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-  }
-}
+/* Стили для кнопок вынесены в BaseButton компонент */
 </style>

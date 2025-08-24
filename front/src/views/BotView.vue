@@ -107,7 +107,7 @@
                         <span class="price-value">{{ bot?.chatPrice || 0 }} валентинок</span>
                       </div>
                       <BaseButton 
-                        variant="primary" 
+                        variant="standard" 
                         size="lg" 
                         @click="startChat"
                       >
@@ -122,7 +122,7 @@
                         <span class="price-value">{{ bot?.exclusivePrice || 0 }} валентинок</span>
                       </div>
                       <BaseButton 
-                        variant="secondary" 
+                        variant="outline" 
                         size="lg" 
                         @click="buyExclusive"
                       >
@@ -137,7 +137,7 @@
                         <span class="price-value">20 валентинок</span>
                       </div>
                       <BaseButton 
-                        variant="primary" 
+                        variant="standard" 
                         size="lg" 
                         @click="requestNotification"
                       >
