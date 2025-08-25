@@ -114,6 +114,11 @@ const goBack = () => {
   transform: scale(1.1);
 }
 
+/* Стили для заголовков */
+h1 {
+  font-size: 1.25rem;
+}
+
 .balance {
   background: rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1rem;

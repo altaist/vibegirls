@@ -1,104 +1,195 @@
 <template>
-  <div class="chat-view">
-    <AppHeader />
+  <AppLayout :hide-footer="true">
+    <!-- Кастомный хедер для чата -->
+    <template #header>
+      <ChatHeader />
+    </template>
     
-    <div class="chat-container">
-      <div class="chat-content">
-        <div class="chat-placeholder">
-          <div class="placeholder-icon">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+    <!-- Основная область чата -->
+    <div class="chat-main">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-11 col-12">
+            <ChatMessages 
+              :messages="messages" 
+              :is-typing="isTyping"
+              :bot-name="botName"
+              :bot-avatar="botAvatar"
+            />
           </div>
-          <h2 class="placeholder-title">Здесь будет чат</h2>
-          <p class="placeholder-text">Функция чата находится в разработке</p>
         </div>
       </div>
     </div>
-  </div>
+    
+    <!-- Поле ввода сообщений -->
+    <ChatInput @send="handleSendMessage" />
+  </AppLayout>
 </template>
 
 <script setup lang="ts">
-import AppHeader from '@/components/common/AppHeader.vue'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import AppLayout from '@/components/common/AppLayout.vue'
+import ChatHeader from '@/components/chat/ChatHeader.vue'
+import ChatInput from '@/components/chat/ChatInput.vue'
+import ChatMessages from '@/components/chat/ChatMessages.vue'
+
+const route = useRoute()
+
+// Получаем ID бота из параметров маршрута
+const botId = route.params.botId as string
+
+// Демо-данные бота
+const botName = ref('Анна')
+const botAvatar = ref('https://i.pravatar.cc/100?img=1')
+
+// Состояние чата
+const messages = ref([
+  {
+    id: '1',
+    text: 'Привет! Как дела? 😊',
+    timestamp: new Date(Date.now() - 300000), // 5 минут назад
+    isOwn: false
+  },
+  {
+    id: '2',
+    text: 'Привет! Все отлично, спасибо! А у тебя как?',
+    timestamp: new Date(Date.now() - 240000), // 4 минуты назад
+    isOwn: true
+  },
+  {
+    id: '3',
+    text: 'Тоже хорошо! Рада, что ты заглянул. Чем занимаешься?',
+    timestamp: new Date(Date.now() - 180000), // 3 минуты назад
+    isOwn: false
+  },
+  {
+    id: '4',
+    text: 'Работаю над проектом. А ты что делаешь?',
+    timestamp: new Date(Date.now() - 120000), // 2 минуты назад
+    isOwn: true
+  },
+  {
+    id: '5',
+    text: 'Я тоже работаю! Создаю новый контент для своих подписчиков. Это очень увлекательно!',
+    timestamp: new Date(Date.now() - 60000), // 1 минуту назад
+    isOwn: false
+  },
+  {
+    id: '6',
+    text: 'Звучит интересно! Какой именно контент создаешь?',
+    timestamp: new Date(Date.now() - 55000),
+    isOwn: true
+  },
+  {
+    id: '7',
+    text: 'Фотографии, видео, истории из жизни. Люблю делиться своими мыслями и опытом с подписчиками!',
+    timestamp: new Date(Date.now() - 50000),
+    isOwn: false
+  },
+  {
+    id: '8',
+    text: 'Круто! А сколько у тебя подписчиков?',
+    timestamp: new Date(Date.now() - 45000),
+    isOwn: true
+  },
+  {
+    id: '9',
+    text: 'Около 50 тысяч! Но для меня важнее не количество, а качество общения с людьми 😊',
+    timestamp: new Date(Date.now() - 40000),
+    isOwn: false
+  },
+  {
+    id: '10',
+    text: 'Впечатляет! Как давно ведешь блог?',
+    timestamp: new Date(Date.now() - 35000),
+    isOwn: true
+  },
+  {
+    id: '11',
+    text: 'Уже 3 года! Начинала с простых постов, а теперь это стало важной частью моей жизни',
+    timestamp: new Date(Date.now() - 30000),
+    isOwn: false
+  },
+  {
+    id: '12',
+    text: 'А что тебя вдохновляет на создание контента?',
+    timestamp: new Date(Date.now() - 25000),
+    isOwn: true
+  },
+  {
+    id: '13',
+    text: 'Люди, природа, путешествия, книги... Вдохновение можно найти везде, если внимательно смотреть вокруг!',
+    timestamp: new Date(Date.now() - 20000),
+    isOwn: false
+  },
+  {
+    id: '14',
+    text: 'Согласен! А какие у тебя любимые места для путешествий?',
+    timestamp: new Date(Date.now() - 15000),
+    isOwn: true
+  },
+  {
+    id: '15',
+    text: 'Обожаю горы и море! В горах чувствую себя свободной, а море успокаивает и заряжает энергией 🌊',
+    timestamp: new Date(Date.now() - 10000),
+    isOwn: false
+  }
+])
+
+const isTyping = ref(false)
+
+const handleSendMessage = (message: string) => {
+  console.log('Отправка сообщения:', message, 'боту:', botId)
+  
+  // Добавляем сообщение пользователя
+  const userMessage = {
+    id: Date.now().toString(),
+    text: message,
+    timestamp: new Date(),
+    isOwn: true
+  }
+  messages.value.push(userMessage)
+  
+  // Имитируем ответ бота
+  isTyping.value = true
+  setTimeout(() => {
+    isTyping.value = false
+    
+    const botResponses = [
+      'Интересно! Расскажи подробнее 😊',
+      'Понятно! А что тебя больше всего интересует в этом?',
+      'Звучит увлекательно! Хочешь обсудить это детальнее?',
+      'Спасибо за рассказ! Мне очень интересно узнать твое мнение.',
+      'Отлично! А какие у тебя планы на будущее?'
+    ]
+    
+    const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)]
+    
+    const botMessage = {
+      id: (Date.now() + 1).toString(),
+      text: randomResponse,
+      timestamp: new Date(),
+      isOwn: false
+    }
+    messages.value.push(botMessage)
+  }, 1500 + Math.random() * 1000) // Случайная задержка 1.5-2.5 секунды
+}
 </script>
 
 <style scoped>
-.chat-view {
-  min-height: 100vh;
-  background: #f8fafc;
+.chat-main {
+  flex: 1;
+  overflow: hidden;
+  padding-bottom: 120px; /* Увеличиваем отступ для поля ввода */
 }
 
-.chat-container {
-  padding-top: 56px; /* Высота header */
-}
 
-.chat-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 56px);
-  padding: 2rem;
-}
-
-.chat-placeholder {
-  text-align: center;
-  max-width: 400px;
-}
-
-.placeholder-icon {
-  margin-bottom: 2rem;
-  color: var(--gray-400);
-}
-
-.placeholder-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--gray-900);
-  margin-bottom: 1rem;
-}
-
-.placeholder-text {
-  font-size: 1.125rem;
-  color: var(--gray-600);
-  line-height: 1.6;
-}
 
 /* Мобильная адаптация */
 @media (max-width: 768px) {
-  .chat-content {
-    padding: 1rem;
-  }
-  
-  .placeholder-title {
-    font-size: 1.5rem;
-  }
-  
-  .placeholder-text {
-    font-size: 1rem;
-  }
-  
-  .placeholder-icon svg {
-    width: 48px;
-    height: 48px;
-  }
-}
-
-@media (max-width: 480px) {
-  .chat-content {
-    padding: 0.5rem;
-  }
-  
-  .placeholder-title {
-    font-size: 1.25rem;
-  }
-  
-  .placeholder-text {
-    font-size: 0.875rem;
-  }
-  
-  .placeholder-icon svg {
-    width: 40px;
-    height: 40px;
+  .chat-main {
+    padding-bottom: 100px;
   }
 }
 </style>
