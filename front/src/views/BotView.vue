@@ -186,17 +186,12 @@ const bot = ref<Bot | null>(null)
 onMounted(() => {
   const botId = route.params.id as string
   bot.value = mockBots.find(b => b.id === botId) || null
-  
-  // Скролл на начало страницы
-  window.scrollTo(0, 0)
 })
 
 // Следим за изменением маршрута для перехода между ботами
 watch(() => route.params.id, (newBotId) => {
   if (newBotId) {
     bot.value = mockBots.find(b => b.id === newBotId) || null
-    // Скролл на начало страницы при смене бота
-    window.scrollTo(0, 0)
   }
 })
 
@@ -220,9 +215,13 @@ const moodText = computed(() => {
   return 'Очень плохое настроение 😢'
 })
 
+import { useNavigation } from '@/composables/useNavigation'
+
+const { goToChat } = useNavigation()
+
 const startChat = () => {
   if (bot.value) {
-    router.push(`/chat/${bot.value.id}`)
+    goToChat(bot.value.id)
   }
 }
 

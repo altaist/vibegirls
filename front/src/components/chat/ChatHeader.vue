@@ -34,13 +34,9 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useNavigation } from '@/composables/useNavigation'
 
-const router = useRouter()
-
-const goBack = () => {
-  router.back()
-}
+const { goBack } = useNavigation()
 
 const openMagicWand = () => {
   // Здесь будет логика для волшебной палочки

@@ -77,13 +77,12 @@ const pageTitle = computed(() => {
   }
 })
 
-const openProfile = () => {
-  // Переходим на страницу профиля
-  router.push('/profile')
-};
+import { useNavigation } from '@/composables/useNavigation'
 
-const goBack = () => {
-  router.back()
+const { goToProfile, goBack } = useNavigation()
+
+const openProfile = () => {
+  goToProfile()
 };
 </script>
 

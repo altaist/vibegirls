@@ -58,8 +58,12 @@ const moodIcon = computed(() => {
   return '😊';
 });
 
+import { useNavigation } from '@/composables/useNavigation'
+
+const { goToBot } = useNavigation()
+
 const openBot = () => {
-  router.push(`/bot/${props.bot.id}`);
+  goToBot(props.bot.id);
 };
 </script>
 
