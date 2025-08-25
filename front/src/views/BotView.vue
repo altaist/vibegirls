@@ -410,13 +410,14 @@ const requestNotification = () => {
 .mood-bar {
   flex: 1;
   height: 12px;
-  background: var(--gray-200);
+  background: #e5e7eb;
   border-radius: 6px;
   overflow: hidden;
 }
 
 .mood-fill {
   height: 100%;
+  min-width: 1px;
   background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f);
   transition: width 0.3s ease;
 }
@@ -639,22 +640,23 @@ const requestNotification = () => {
   }
 
   .mood-indicator {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    display: block;
     width: 100%;
-    display: flex;
   }
 
   .mood-bar {
     width: 100%;
     height: 10px;
+    margin-bottom: 0.75rem;
   }
 
   .mood-text {
-    min-width: auto;
-    font-size: 0.875rem;
     display: block;
+    font-size: 0.875rem;
+  }
+
+  .mood-fill {
+    min-width: 1px;
   }
 
   .action-buttons {
