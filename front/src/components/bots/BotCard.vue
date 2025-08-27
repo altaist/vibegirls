@@ -2,6 +2,13 @@
   <div class="bot-card" @click="openBot">
     <div class="bot-image-container">
       <img :src="bot.avatar" :alt="bot.name" class="bot-image" />
+      
+      <!-- Счетчик лайков в левом верхнем углу -->
+      <div class="likes-counter">
+        <span class="likes-icon">❤️</span>
+        <span class="likes-count">{{ bot.likesCount || 0 }}</span>
+      </div>
+      
       <div class="bot-overlay">
         <BotStatus 
           :is-online="bot.isOnline"
@@ -13,8 +20,10 @@
     
     <div class="bot-info">
       <div class="bot-header">
-        <h3 class="bot-name font-display">{{ bot.name }}</h3>
-        <span class="bot-age font-body">{{ bot.age }} {{ $t('bots.age') }}</span>
+        <h3 class="bot-name font-display">
+          {{ bot.name }}
+          <span class="bot-age font-body">{{ bot.age }} {{ $t('bots.age') }}</span>
+        </h3>
       </div>
       
       <div class="bot-mood">
@@ -103,6 +112,32 @@ const openBot = () => {
   transform: scale(1.05);
 }
 
+.likes-counter {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+}
+
+.likes-icon {
+  font-size: 0.875rem;
+}
+
+.likes-count {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--bs-dark);
+  font-family: var(--font-display);
+}
+
 .bot-overlay {
   position: absolute;
   top: 1rem;
@@ -120,9 +155,6 @@ const openBot = () => {
 }
 
 .bot-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 0.5rem;
 }
 
@@ -139,15 +171,13 @@ const openBot = () => {
 }
 
 .bot-age {
-  color: var(--bs-white);
-  font-size: 1.125rem;
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-left: 0.5rem;
   position: relative;
   z-index: 2;
-  backdrop-filter: blur(10px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .bot-mood {
@@ -210,8 +240,22 @@ const openBot = () => {
   }
   
   .bot-age {
-    font-size: 1rem;
-    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+  }
+  
+  .likes-counter {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.375rem 0.625rem;
+  }
+  
+  .likes-icon {
+    font-size: 0.75rem;
+  }
+  
+  .likes-count {
+    font-size: 0.75rem;
   }
   
   .mood-icon {

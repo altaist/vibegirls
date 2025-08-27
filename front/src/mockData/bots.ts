@@ -38,7 +38,8 @@ export const mockBots: Bot[] = [
       mood: 75
     },
     isFavorite: false,
-    lastMessageAt: new Date('2024-01-15T10:30:00')
+    lastMessageAt: new Date('2024-01-15T10:30:00'),
+    likesCount: 1247
   },
   {
     id: '2',
@@ -76,7 +77,8 @@ export const mockBots: Bot[] = [
       mood: 60
     },
     isFavorite: true,
-    lastMessageAt: new Date('2024-01-15T09:15:00')
+    lastMessageAt: new Date('2024-01-15T09:15:00'),
+    likesCount: 2156
   },
   {
     id: '3',
@@ -114,7 +116,8 @@ export const mockBots: Bot[] = [
       mood: 30
     },
     isFavorite: false,
-    lastMessageAt: new Date('2024-01-14T23:45:00')
+    lastMessageAt: new Date('2024-01-14T23:45:00'),
+    likesCount: 892
   },
   {
     id: '4',
@@ -152,7 +155,8 @@ export const mockBots: Bot[] = [
       mood: 85
     },
     isFavorite: false,
-    lastMessageAt: new Date('2024-01-15T11:20:00')
+    lastMessageAt: new Date('2024-01-15T11:20:00'),
+    likesCount: 1567
   },
   {
     id: '5',
@@ -190,7 +194,8 @@ export const mockBots: Bot[] = [
       mood: 70
     },
     isFavorite: true,
-    lastMessageAt: new Date('2024-01-15T12:00:00')
+    lastMessageAt: new Date('2024-01-15T12:00:00'),
+    likesCount: 3421
   },
   {
     id: '6',
@@ -228,6 +233,7 @@ export const mockBots: Bot[] = [
       mood: 80
     },
     isFavorite: false,
-    lastMessageAt: new Date('2024-01-15T13:30:00')
+    lastMessageAt: new Date('2024-01-15T13:30:00'),
+    likesCount: 2789
   }
 ];

@@ -31,6 +31,7 @@ export interface Bot {
   // Отношения с пользователем
   isFavorite: boolean;
   lastMessageAt?: Date;
+  likesCount: number; // количество лайков
 }
 
 export interface BotFilters {
