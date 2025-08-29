@@ -2,7 +2,11 @@
   <AppLayout :hide-footer="true">
     <!-- Кастомный хедер для чата -->
     <template #header>
-      <ChatHeader />
+      <ChatHeader 
+        :bot-name="botName"
+        :bot-avatar="botAvatar"
+        :bot-status="botStatus"
+      />
     </template>
     
     <!-- Основная область чата -->
@@ -27,21 +31,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { mockBots } from '@/mockData/bots'
 import AppLayout from '@/components/common/AppLayout.vue'
 import ChatHeader from '@/components/chat/ChatHeader.vue'
 import ChatInput from '@/components/chat/ChatInput.vue'
 import ChatMessages from '@/components/chat/ChatMessages.vue'
+import type { Bot } from '@/types/bot'
 
 const route = useRoute()
 
 // Получаем ID бота из параметров маршрута
 const botId = route.params.botId as string
 
-// Демо-данные бота
-const botName = ref('Анна')
-const botAvatar = ref('https://i.pravatar.cc/100?img=1')
+// Находим бота по ID
+const bot = ref<Bot | null>(null)
+
+onMounted(() => {
+  bot.value = mockBots.find(b => b.id === botId) || null
+})
+
+// Вычисляемые свойства для данных бота
+const botName = computed(() => bot.value?.name || 'Неизвестный бот')
+const botAvatar = computed(() => bot.value?.avatar || 'https://i.pravatar.cc/100?img=1')
+const botStatus = computed(() => {
+  if (!bot.value) return 'Неизвестно'
+  if (bot.value.isOnline) {
+    return bot.value.communicationStatus === 'free' ? 'Свободна' : 'Занята'
+  }
+  return 'Оффлайн'
+})
 
 // Состояние чата
 const messages = ref([

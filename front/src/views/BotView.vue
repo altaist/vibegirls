@@ -177,6 +177,7 @@ import BotStatus from '@/components/common/BotStatus.vue'
 import ActivityFeed from '@/components/common/ActivityFeed.vue'
 import type { Bot } from '@/types/bot'
 import AppLayout from '@/components/common/AppLayout.vue'
+import { useNavigation } from '@/composables/useNavigation'
 
 const route = useRoute()
 const router = useRouter()
@@ -214,8 +215,6 @@ const moodText = computed(() => {
   if (mood > -40) return 'Плохое настроение 😔'
   return 'Очень плохое настроение 😢'
 })
-
-import { useNavigation } from '@/composables/useNavigation'
 
 const { goToChat } = useNavigation()
 

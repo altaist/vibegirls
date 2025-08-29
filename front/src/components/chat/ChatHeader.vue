@@ -14,8 +14,18 @@
             </svg>
           </button>
           
-          <!-- Заголовок -->
-          <h1 class="font-display-bold text-white mb-0">ЧАТ</h1>
+          <!-- Аватар и имя бота -->
+          <div class="d-flex align-items-center">
+            <img 
+              :src="botAvatar" 
+              :alt="botName"
+              class="bot-avatar me-2"
+            />
+            <div class="bot-info">
+              <h1 class="font-display-bold text-white mb-0">{{ botName }}</h1>
+              <small class="text-white-50">{{ botStatus }}</small>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -35,6 +45,18 @@
 
 <script setup lang="ts">
 import { useNavigation } from '@/composables/useNavigation'
+
+interface Props {
+  botName?: string
+  botAvatar?: string
+  botStatus?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  botName: 'Чат',
+  botAvatar: 'https://i.pravatar.cc/100?img=1',
+  botStatus: 'Онлайн'
+})
 
 const { goBack } = useNavigation()
 
@@ -63,6 +85,30 @@ const openMagicWand = () => {
 /* Стили для заголовков */
 h1 {
   font-size: 1.25rem;
+}
+
+/* Стили для аватара бота */
+.bot-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.bot-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.bot-info h1 {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.bot-info small {
+  font-size: 0.75rem;
+  line-height: 1;
 }
 
 .magic-wand-avatar {
